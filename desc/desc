@@ -1,3 +1,7 @@
-git push origin <local_branch>:<remote_branch>   #把本地创建的分支推送远程仓库，远程服务器没有创建仓库
+ssh-keygen -t rsa -C <邮箱名>   #生成SSH秘钥
 
+#分支和远程
+git push origin <local_branch>:<remote_branch>   #把本地创建的分支推送远程仓库，远程服务器没有创建仓库
 git push --set-upstream origin <remote_dev>     #把本地仓库与远程仓库关联起来
+git push origin --delete <remote_dev>   #删除远程分支
+git branch -d <local_branch>    #删除本地分支
