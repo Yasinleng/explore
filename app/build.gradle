@@ -1,4 +1,10 @@
 apply plugin: 'com.android.application'
-apply from:"../common.gradle"
+apply from: "../common.gradle"
+apply from: "../kotlin.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
-
+dependencies {
+    implementation 'androidx.appcompat:appcompat:+'
+    implementation 'androidx.constraintlayout:constraintlayout:+'
+}
