@@ -1,0 +1,3 @@
+git push origin <local_branch>:<remote_branch>   #把本地创建的分支推送远程仓库，远程服务器没有创建仓库
+
+git push --set-upstream origin <remote_dev>     #把本地仓库与远程仓库关联起来
