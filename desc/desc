@@ -1,5 +1,14 @@
 ssh-keygen -t rsa -C <邮箱名>   #生成SSH秘钥
 
+#提交log
+git commit -m "<提交说明>"
+#--no-edit 参数可以避免弹出编辑器。如果不带此参数，则会弹出 vim 编辑器让你进一步编辑
+git commit --amend --author "yasin <yasinleng@yeah.net>" --no-edit  #修改提交log中用户和邮箱
+git commit --amend --message "Add Test.txt file" --no-edit  #修改提交log中的提交说明
+
+git rebase -i HEAD~2 或者 git rebase -i 1bd28ffbd19  #修改最近几次
+
+
 #分支和远程
 git push origin <local_branch>:<remote_branch>   #把本地创建的分支推送远程仓库，远程服务器没有创建仓库
 git push --set-upstream origin <remote_dev>     #把本地仓库与远程仓库关联起来
