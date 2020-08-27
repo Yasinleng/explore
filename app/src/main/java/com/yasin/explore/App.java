@@ -14,9 +14,13 @@ import com.github.moduth.blockcanary.internal.BlockInfo;
  */
 public class App extends Application {
 
+
+    public static Context context;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        context=getApplicationContext();
         BlockCanary.install(this,new BlockCanaryContext(){
             @Override
             public int provideBlockThreshold() {
