@@ -6,10 +6,9 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.RequestManager;
-import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.yasin.explore.utils.image.load.ImageLoader;
 import com.yasin.explore.utils.image.load.LoadImageConfig;
 
@@ -21,9 +20,7 @@ public class GlideImageLoader implements ImageLoader {
 
     @Override
     public void loadImage(ImageView imageView, Object object, LoadImageConfig config) {
-
         RequestManager with = Glide.with(imageView);
-
         if (config!=null) {
             if (config.getResouceType()==LoadImageConfig.GIF) with.asGif();
 
@@ -33,6 +30,7 @@ public class GlideImageLoader implements ImageLoader {
             if (config.getEmptyImg()!=0) options.fallback(config.getEmptyImg());
 
             if (config.getRadius()!=null){
+                options=options.transform(new RoundedCorners(config.getRadius()[0],config.getRadius()[1],config.getRadius()[2],config.getRadius()[3]));
             }
 
 

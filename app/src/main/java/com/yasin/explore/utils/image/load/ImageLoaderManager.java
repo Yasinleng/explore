@@ -34,11 +34,15 @@ public class ImageLoaderManager {
         this.config=config;
     }
 
-    void loadImage(ImageView imageView, Object object){
-        loader.loadImage(imageView,object,config.create());
+    public void loadImage(ImageView imageView, Object object){
+        if (config!=null)
+            loader.loadImage(imageView,object,config.create());
+        else
+            loader.loadImage(imageView,object,null);
+
     }
 
-    void loadImage(ImageView imageView, Object object,ImageConfig config){
+    public void loadImage(ImageView imageView, Object object,ImageConfig config){
         if (config==null)
             throw new IllegalArgumentException("config 不能为空");
         loader.loadImage(imageView,object,config.create());
