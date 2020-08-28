@@ -5,9 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.yasin.explore.bean.User;
 import com.yasin.explore.utils.image.load.ImageConfig;
 import com.yasin.explore.utils.image.load.ImageLoaderManager;
 import com.yasin.explore.utils.image.load.LoadImageConfig;
+import com.yasin.explore.utils.json.DefaultJsonParse;
+import com.yasin.explore.utils.json.GsonJsonParse;
+import com.yasin.explore.utils.json.JsonPlatform;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,5 +34,32 @@ public class MainActivity extends AppCompatActivity {
 
         ImageLoaderManager.getInstance().init(() -> new LoadImageConfig.Builder().setCornerRadius(50,150,250,0).build());
         ImageLoaderManager.getInstance().loadImage(image,url);
+
+        parse();
+
+
     }
+
+    public void parse(){
+
+        ArrayList<User> list=new ArrayList<>();
+        for(int i=0;i<15;i++){
+            list.add(new User("姓名"+i,i%3==0?"男":"女"));
+        }
+
+        int i=5;
+
+        JsonPlatform.getInstance().initJsonParse(new GsonJsonParse());
+        String result=JsonPlatform.getInstance().toJsonString(new User("姓名"+i,i%3==0?"男":"女",16));
+        System.out.println(result);
+        System.out.println("==========================================");
+        JsonPlatform.getInstance().initJsonParse(new DefaultJsonParse());
+        User users = JsonPlatform.getInstance().toObject(result, User.class);
+        System.out.println(users);
+
+    }
+
+
+
+
 }

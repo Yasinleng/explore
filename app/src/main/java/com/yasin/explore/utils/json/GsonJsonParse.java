@@ -23,7 +23,7 @@ public class GsonJsonParse implements JsonParse {
         if (object instanceof List){
             return gson.toJson(object,new TypeToken<List<Object>>(){}.getType());
         }
-        return gson.toJson(gson);
+        return gson.toJson(object);
     }
 
     @Override

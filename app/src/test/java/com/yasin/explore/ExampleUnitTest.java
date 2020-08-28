@@ -2,6 +2,7 @@ package com.yasin.explore;
 
 import android.util.Log;
 
+import com.yasin.explore.utils.json.DefaultJsonParse;
 import com.yasin.explore.utils.json.GsonJsonParse;
 import com.yasin.explore.utils.json.JsonPlatform;
 import com.yasin.explore.bean.User;
@@ -33,11 +34,14 @@ public class ExampleUnitTest {
             list.add(new User("姓名"+i,i%3==0?"男":"女"));
         }
 
+        int i=5;
+
         JsonPlatform.getInstance().initJsonParse(new GsonJsonParse());
-        String result=JsonPlatform.getInstance().toJsonString(list);
+        String result=JsonPlatform.getInstance().toJsonString(new User("姓名"+i,i%3==0?"男":"女"));
         System.out.println(result);
         System.out.println("==========================================");
-        List<User> users = JsonPlatform.getInstance().toObjectList(result, User.class);
+        JsonPlatform.getInstance().initJsonParse(new DefaultJsonParse());
+        User users = JsonPlatform.getInstance().toObject(result, User.class);
         System.out.println(users);
 
     }
