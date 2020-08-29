@@ -1,4 +1,4 @@
-package com.yasin.explore.framework;
+package com.yasin.explore.framework.rxjava;
 
 /**
  * @Email: yasinleng@163.com
