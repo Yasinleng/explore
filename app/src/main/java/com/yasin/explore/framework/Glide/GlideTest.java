@@ -1,4 +1,4 @@
-package com.yasin.explore.framework;
+package com.yasin.explore.framework.Glide;
 
 import android.widget.ImageView;
 
