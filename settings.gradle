@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':poet'
 rootProject.name='explore'
