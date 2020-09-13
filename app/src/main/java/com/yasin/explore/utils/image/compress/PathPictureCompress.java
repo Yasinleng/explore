@@ -39,8 +39,8 @@ final class PathPictureCompress implements PictureCompress {
         if (options.outHeight*options.outWidth*4>limitSize){
             options.inPreferredConfig= Bitmap.Config.RGB_565; //设置色彩模式，默认值是ARGB_8888 4个字节  RGB_565  2个字节
             double num=options.outHeight*options.outWidth/limitSize;
-            options.inDensity= (int) ceil(sqrt(num));
-            options.inTargetDensity=1;
+            options.inDensity= (int) ceil(sqrt(num)); //图片本身密度
+            options.inTargetDensity=1;    //要显示的密度
         }
         options.inJustDecodeBounds=false;
         bitmap= BitmapFactory.decodeFile(path,options);

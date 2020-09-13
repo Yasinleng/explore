@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static org.junit.Assert.*;
 
@@ -54,5 +55,73 @@ public class ExampleUnitTest {
 
     }
 
+    @Test
+    public void Test(){
+        String a="qe";
+        String b="abquqe";
+        int count=0;
+
+        for (int i=0;i<b.length();i++){
+            int index=0;
+            for (int j=0;j<a.length();j++){
+                count++;
+                if (b.charAt(i+j)==a.charAt(j)){
+                    index++;
+                }else {
+                    break;
+                }
+            }
+            if (index==a.length()){
+                System.out.println("第一次位置"+i);
+                break;
+            }
+        }
+
+        System.out.println("count = "+count);
+    }
+
+
+    @Test
+    public void test(){
+        System.out.println(" 个数 = "+sum(3));
+
+    }
+    public int  sum(int n){
+       if (n==1){
+           return 1;
+       }else {
+           return n*n+sum(n-1);
+       }
+    }
+
+    @Test
+    public void count(){
+        float vHour=180/6*60;
+        float vMinute=360/60;
+        int timeMinute=24*60;
+        int count=0;
+        for (int i=1;i<timeMinute;i++){
+            if ((vMinute*i)%360==(vHour*i)%360){
+                count++;
+            }
+        }
+        System.out.println("次数 = "+count);
+    }
+
+    @Test
+    public void day(){
+        day(19);
+    }
+
+    public void day(int number){
+        int day=0;
+        int[] count={1,3,2};
+        Random random=new Random();
+        while (number>0){
+            number=number-count[random.nextInt(count.length)];
+            day++;
+        }
+        System.out.println("天数 = "+day);
+    }
 
 }
