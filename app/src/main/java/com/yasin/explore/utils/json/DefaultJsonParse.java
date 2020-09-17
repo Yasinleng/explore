@@ -77,14 +77,12 @@ public class DefaultJsonParse implements JsonParse {
         List list=new ArrayList();
 
         for (int i=0;i<array.length();i++){
-
             Object current=array.opt(i);
             if (current instanceof JSONObject){
                 parse((JSONObject) current,genericType);
             }else {
                 list.add(current);
             }
-
         }
         return list;
     }
